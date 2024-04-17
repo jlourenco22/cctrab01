@@ -1,0 +1,111 @@
+<!doctype html>
+<!--
+* Tabler - Premium and Open Source dashboard template with responsive and high quality UI.
+* @version 1.0.0-beta19
+* @link https://tabler.io
+* Copyright 2018-2023 The Tabler Authors
+* Copyright 2018-2023 codecalm.net Paweł Kuna
+* Licensed under MIT (https://github.com/tabler/tabler/blob/master/LICENSE)
+-->
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Indexis - Login</title>
+  <link href="/login_registry/assets/img/favicon (2).png" rel="icon">
+  <!-- CSS files -->
+  <link href="./dist/css/tabler.min.css?1684106062" rel="stylesheet" />
+  <link href="./dist/css/tabler-flags.min.css?1684106062" rel="stylesheet" />
+  <link href="./dist/css/tabler-payments.min.css?1684106062" rel="stylesheet" />
+  <link href="./dist/css/tabler-vendors.min.css?1684106062" rel="stylesheet" />
+  <link href="./dist/css/demo.min.css?1684106062" rel="stylesheet" />
+  <link href="./assets/css/style.css" rel="stylesheet" />
+
+
+</head>
+
+<body class=" d-flex flex-column">
+  <script src="./dist/js/demo-theme.min.js?1684106062"></script>
+
+  <video id="video-background" autoplay muted loop>
+    <source src="./assets/img/index_login.mp4" type="video/mp4">
+  </video>
+
+  <div class="page page-center">
+    <div class="container container-tight py-4 content">
+      <div class="card card-md  custom-card opacity-80">
+        <div class="card-body">
+
+          <h1 class="h1 text-center mb-4">Faça o seu Login</h1>
+          <form autocomplete="off">
+
+            <!-- INPUT EMAIL -->
+            <div class="mb-3">
+              <label class="form-label h2">E-mail</label>
+              <input type="email" id="emailLogin" value="joao.alberto@indexis.com" class="form-control" placeholder="email@email.com" autocomplete="off">
+            </div>
+            <!-- INPUT PASSWORD -->
+            <div class="mb-2">
+              <label class="form-label h2">Palavra-passe</label>
+              <div class="input-group input-group-flat">
+                <input type="password" id="passwordLogin" value="Password123#" class="form-control" placeholder="A sua Palavra-passe"
+                  autocomplete="off">
+                <span class="input-group-text">
+                  <a href="#" class="link-secondary" title="Mostrar password" id="passwordLOGIN"
+                    data-bs-toggle="tooltip">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                      stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                      <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                      <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                    </svg>
+                  </a>
+                </span>
+              </div>
+              
+            </div>
+
+
+            <!-- BOTAO FINAL -->
+            <div class="form-footer mt-5"> <!-- Added margin to the bottom of the button -->
+              <button type="button" class="btn btn-gray w-100 custom-card" onclick="login()">Confirmar</button>
+
+              <script>
+                  function redirectToPage() {
+                      window.location.href = "/indexis_v1/panelAdmin/main/dashboard_indexis.html";
+                  }
+              </script>
+              <!-- onclick="login()" ATENMÇAO ESTÀ AQUI A FUNCAO PARA VOLTAR A DAR O LOGIN!--> 
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Libs JS -->
+  <!-- Tabler Core -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/login_registry/dist/js/tabler.min.js?1684106062" defer></script>
+  <script src="/login_registry/assets/js/login.js"></script>
+  <script src="/login_registry/dist/js/demo.min.js?1684106062" defer></script>
+  <script> $(document).ready(function () {
+      $("#passwordLOGIN").click(function () {
+        var passwordField = $("#passwordLogin");
+        var icon = $("#passwordLOGINicon");
+
+        if (passwordField.attr("type") === "password") {
+          passwordField.attr("type", "text");
+          icon.removeClass("bi-eye").addClass("bi-eye-slash");
+        } else {
+          passwordField.attr("type", "password");
+          icon.removeClass("bi-eye-slash").addClass("bi-eye");
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>

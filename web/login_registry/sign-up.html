@@ -1,0 +1,704 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>Recuvera</title>
+  <link rel="icon" href="\recuvera_v2\LoginERegistos\assets\img\favicon2.png" type="image/x-icon">
+  <!-- CSS files -->
+  <link href="/recuvera_v2/LoginERegistos/dist/css/tabler.min.css?1684106062" rel="stylesheet" />
+  <link href="/recuvera_v2/LoginERegistos/dist/css/tabler-flags.min.css?1684106062" rel="stylesheet" />
+  <link href="/recuvera_v2/LoginERegistos/dist/css/tabler-payments.min.css?1684106062" rel="stylesheet" />
+  <link href="/recuvera_v2/LoginERegistos/dist/css/tabler-vendors.min.css?1684106062" rel="stylesheet" />
+  <link href="/recuvera_v2/LoginERegistos/dist/css/demo.min.css?1684106062" rel="stylesheet" />
+  <style>
+    @import url('https://rsms.me/inter/inter.css');
+
+    :root {
+      --tblr-font-sans-serif: 'Inter Var', -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    }
+
+    body {
+      font-feature-settings: "cv03", "cv04", "cv11";
+    }
+  </style>
+  <style>
+    body {
+      background-image: url('dist/img/login_1.jpg');
+      /* Replace 'path/to/your/background-image.jpg' with the actual path to your image */
+      background-size: cover;
+      /* Adjust to 'cover', 'contain', or other values based on your preference */
+      background-repeat: repeat;
+      /* Prevent the background from repeating */
+    }
+  </style>
+  <style>
+    .custom-card {
+      border-radius: 25px;
+      /* Increase the border-radius value for more rounded corners */
+    }
+  </style>
+</head>
+
+<body class=" d-flex flex-column">
+  <script src="/recuvera_v2/LoginERegistos/dist/js/demo-theme.min.js?1684106062"></script>
+  <div class="page page-center">
+    <div class="container container-tight py-4">
+      
+      <div class="row">
+        <div class="col-lg-12 col-md-10 col-sm-9 col-9 mx-auto mt-4">
+
+          <div class="card card-md  custom-card opacity-90">
+            <!-- Added 'rounded' class to round the edges of the card -->
+            <div class="card-body">
+              <div class="text-center mb-4">
+                <a href="" class="navbar-brand navbar-brand-autodark mt-2 mb-2"><img
+                    src="\recuvera_v2\LoginERegistos\dist\img\logotipo_recuvera.jpg" height="42"
+                    alt="LOGOTIPO_RECUVERA"></a>
+              </div>
+              <h2 class="h2 text-center mb-4">Faça o seu Registo</h2>
+
+              <div class="text-center">
+                <div class="row  ">
+                    <!-- <div class="col-lg-12  col-md-10 col-sm-8"> -->
+                        <div class="form-selectgroup justify-content-center align-items-center" id="tipoUsuario">
+                            <label class="form-selectgroup-item">
+                                <input type="radio" name="icons" value="home" class="form-selectgroup-input">
+                                <span class="form-selectgroup-label"><!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user-check" width="24"
+                                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0"></path>
+                                        <path d="M6 21v-2a4 4 0 0 1 4 -4h4"></path>
+                                        <path d="M15 19l2 2l4 -4"></path>
+                                    </svg>
+                                    Cliente
+                                </span>
+                            </label>
+            
+                            <label class="form-selectgroup-item">
+                                <input type="radio" name="icons" value="user" class="form-selectgroup-input">
+                                <span class="form-selectgroup-label"><!-- Download SVG icon from http://tabler-icons.io/i/user -->
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-nurse" width="24"
+                                        height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
+                                        <path d="M12 6c2.941 0 5.685 .847 8 2.31l-2 9.69h-12l-2 -9.691a14.93 14.93 0 0 1 8 -2.309z">
+                                        </path>
+                                        <path d="M10 12h4"></path>
+                                        <path d="M12 10v4"></path>
+                                    </svg>
+                                    Prestador de serviços
+                                </span>
+                            </label>
+                        </div>
+                    <!-- </div> -->
+                </div>
+            </div>
+            
+
+              <br><br>
+
+              <!-- FORM Cliente -->
+              <form autocomplete="off" id="formCliente" style="display: none;">
+
+                <!-- INPUT EMAIL -->
+                <div class="mb-3">
+                  <label class="form-label">Nome</label>
+                  <input type="text" id="nomeCliente" class="form-control" autocomplete="off" placeholder="O seu nome">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Apelido</label>
+                  <input type="text" id="ultimonomeCliente" class="form-control" autocomplete="off" placeholder="O seu apelido">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">NIF</label>
+                  <input type="number" id="NIFCliente" class="form-control" autocomplete="off" placeholder="234234234">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">NISS</label>
+                  <input type="number" id="NISSCliente" class="form-control" autocomplete="off"
+                    placeholder="1342342341231">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">E-mail</label>
+                  <input type="email" id="emailCliente" class="form-control" placeholder="email@email.com"
+                    autocomplete="off">
+                </div>
+                <!-- INPUT PASSWORD -->
+                <div class="mb-2">
+                  <label class="form-label">Palavra-passe</label>
+                  <div class="input-group input-group-flat">
+                    <input type="password" id="passwordCliente" class="form-control" placeholder="A sua password"
+                      autocomplete="off">
+                    <span class="input-group-text">
+                      <a href="#" class="link-secondary" title="Show password" id="passwordClienteToggle"
+                        data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                          stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                          stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                          <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                        </svg>
+
+                      </a>
+                    </span>
+                  </div>
+                  <div class="form-text" id="passwordStrengthFeedbackCliente">
+                    A sua password deve conter pelo menos 8 caracteres, uma letra maiuscula e um caractere especial!
+                  </div>
+                  <br>
+                </div>
+
+
+                <div class="mb-2">
+                  <label class="form-label">Confirmar Palavra-passe</label>
+                  <div class="input-group input-group-flat">
+                    <input type="password" id="passwordCLIENTEconfirmação" class="form-control"
+                      placeholder="A sua password" autocomplete="off">
+                    <span class="input-group-text">
+                      <a href="#" class="link-secondary" title="Mostar Palavra-passe" id="passwordCLIENTEconfirmaçãoToggle"
+                        data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                          stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                          stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                          <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                        </svg>
+                      </a>
+                    </span>
+                  </div>
+                  <div class="form-text" id="passwordConfirmationFeedbackCliente"></div>
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Morada</label>
+                  <input type="text" id="moradaCliente" class="form-control" placeholder="Avenida da Liberdade nº23"
+                    autocomplete="off">
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Codigo Postal</label>
+                  <input type="number" id="codigoPostalCliente" class="form-control" placeholder="0000-00"
+                    autocomplete="off">
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">Telemóvel</label>
+                  <input type="number" id="telemovelCliente" class="form-control" placeholder="939393934"
+                    autocomplete="off">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Data de Nascimento</label>
+                  <input type="date" id="nascimentoCliente" class="form-control" placeholder=""
+                    autocomplete="off">
+                </div>
+                
+                <div class="mb-3 mt-3">
+                  <label class="form-check">
+                    <input type="checkbox" class="form-check-input" id="aceitoTermosCliente" />
+                    <span class="form-check-label">
+                      Aceito os <a href="#" data-bs-toggle="modal" data-bs-target="#modal_TeC">Termos e Condições</a>
+                      e <a href="#" data-bs-toggle="modal" data-bs-target="#modal_PeP">Política de Privacidade</a>
+                    </span>
+                  </label>
+                </div>
+                <!-- BOTAO FINAL -->
+                <div class="form-footer mt-5"> <!-- Added margin to the bottom of the button -->
+                  <button type="button" class="btn btn-info w-100 custom-card"
+                    onclick="registoCliente()">Confirmar</button>
+                </div>
+              </form>
+
+
+              <!-- FORM Prestadores -->
+
+              <form autocomplete="off" id="formPrestador" style="display: none;">
+
+                
+                <div class="mb-3">
+                  <label class="form-label">Nome</label>
+                  <input type="text" id="nomePrestador" class="form-control" autocomplete="off"
+                    placeholder="O seu nome">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">Apelido</label>
+                  <input type="text" id="ultimonomePrestador" class="form-control" autocomplete="off" placeholder="O seu apelido">
+                </div>
+                <div class="mb-3">
+                  <label class="form-label">NIF</label>
+                  <input type="number" id="NIFPrestador" class="form-control" autocomplete="off"
+                    placeholder="234234234">
+                </div>
+
+                <div class="mb-3">
+                  <label class="form-label">E-mail</label>
+                  <input type="email" id="emailPrestador" class="form-control" placeholder="email@email.com"
+                    autocomplete="off">
+                </div>
+                <!-- INPUT PASSWORD -->
+                <div class="mb-2">
+                  <label class="form-label">Palavra-passe</label>
+                  <div class="input-group input-group-flat">
+                    <input type="password" id="passwordPrestador" class="form-control" placeholder="A sua password"
+                      autocomplete="off">
+                    <span class="input-group-text">
+                      <a href="#" class="link-secondary" title="Show password" id="passwordPrestadorToggle"
+                        data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                          stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                          stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                          <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                        </svg>
+                      </a>
+                    </span>
+                  </div>
+                  <div class="form-text" id="passwordStrengthFeedbackPrestador">
+                    A sua password deve conter pelo menos 8 caracteres, uma letra maiuscula e um caractere especial!
+                  </div>
+                  <br>
+                </div>
+                <div class="mb-2">
+                  <label class="form-label">Confirmar Palavra-passe</label>
+                  <div class="input-group input-group-flat">
+                    <input type="password" id="passwordPrestadorconfirmaçao" class="form-control"
+                      placeholder="A sua password" autocomplete="off">
+                    <span class="input-group-text">
+                      <a href="#" class="link-secondary" title="Mostar Palavra-passe" id="passwordPrestadorconfirmaçaoToggle"
+                        data-bs-toggle="tooltip"><!-- Download SVG icon from http://tabler-icons.io/i/eye -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24"
+                          stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round"
+                          stroke-linejoin="round">
+                          <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                          <path d="M10 12a2 2 0 1 0 4 0a2 2 0 0 0 -4 0" />
+                          <path d="M21 12c-2.4 4 -5.4 6 -9 6c-3.6 0 -6.6 -2 -9 -6c2.4 -4 5.4 -6 9 -6c3.6 0 6.6 2 9 6" />
+                        </svg>
+                      </a>
+                    </span>
+
+                  </div>
+                  <div class="form-text" id="passwordConfirmationFeedbackPrestador">
+                    <!-- Display password confirmation feedback here -->
+                  </div>
+                  <br>
+                  <div class="mb-3">
+                    <label class="form-label">Telemovel</label>
+                    <input type="number" id="telemovelPrestador" class="form-control" autocomplete="off"
+                      placeholder="939393934" placeholder="O seu nome">
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Morada</label>
+                    <input type="text" id="moradaPrestador" class="form-control" placeholder="Rua do utilizador nº X"
+                      autocomplete="off">
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Codigo Postal</label>
+                    <input type="number" id="codigoPostalPrestador" class="form-control" placeholder="0000-00"
+                      autocomplete="off">
+                  </div>
+                  <div class="mb-3">
+                    <label class="form-label">Data de Nascimento</label>
+                    <input type="date" id="nascimentoPrestador" class="form-control" placeholder=""
+                      autocomplete="off">
+                  </div>
+
+                  <div class="mb-3">
+                    <label class="form-label">Tipo de prestador de serviço</label>
+                    <select class="form-select" id="tipoPrestador">
+                    </select>
+                  </div>
+
+                </div>
+                <div class="mb-3 mt-3">
+                  <label class="form-check">
+                    <input type="checkbox" class="form-check-input" id="aceitoTermosPrestador" />
+                    <span class="form-check-label">
+                      Aceito os <a href="#" data-bs-toggle="modal" data-bs-target="#modal_TeC">Termos e Condições</a>
+                      e <a href="#" data-bs-toggle="modal" data-bs-target="#modal_PeP">Política de Privacidade</a>
+                    </span>
+                  </label>
+                </div>
+                <!-- BOTAO FINAL -->
+                <div class="form-footer mt-5"> <!-- Added margin to the bottom of the button -->
+                  <button type="button" class="btn btn-info w-100 custom-card"
+                    onclick="registoPrestador()">Confirmar</button>
+                </div>
+              </form>
+              <div class="text-center text-muted mt-3">
+                Já está registado? <a href="./sign-in.html" tabindex="-1">Faça Login</a>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal T&C  -->
+
+
+  <div class="modal modal-blur fade" id="modal_TeC" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Termos e Condiçoes</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Termos de Serviço da Recuvera, Lda</strong></p>
+
+          <p><strong>1. Aceitação dos Termos</strong></p>
+
+          <p>Ao acessar e utilizar o site da Recuvera, Lda (doravante referido como "nós", "nosso" ou "Recuvera"), você
+            concorda em cumprir e ficar vinculado aos seguintes Termos de Serviço. Se você não concordar com algum
+            destes termos, não utilize nossos serviços.</p>
+
+          <p><strong>2. Uso do Site</strong></p>
+
+          <p>2.1 Você concorda em usar o site da Recuvera apenas para fins legais e de maneira que não viole estes
+            Termos de Serviço ou qualquer lei aplicável.</p>
+
+          <p>2.2 Reservamo-nos o direito de modificar ou interromper nossos serviços a qualquer momento, com ou sem
+            aviso prévio.</p>
+
+          <p><strong>3. Informações do Usuário</strong></p>
+
+          <p>3.1 Ao utilizar nossos serviços, você concorda em fornecer informações precisas, completas e atualizadas
+            quando solicitado.</p>
+
+          <p>3.2 Protegemos suas informações de acordo com nossa Política de Privacidade, que você pode encontrar <a
+              href="#">aqui</a>.</p>
+
+          <p><strong>4. Propriedade Intelectual</strong></p>
+
+          <p>4.1 O conteúdo do site da Recuvera, incluindo textos, gráficos, logotipos, imagens e software, é protegido
+            por direitos autorais e outras leis de propriedade intelectual.</p>
+
+          <p>4.2 Você concorda em não reproduzir, distribuir, modificar ou criar obras derivadas com base no conteúdo do
+            site sem nossa permissão expressa por escrito.</p>
+
+          <p><strong>5. Limitação de Responsabilidade</strong></p>
+
+          <p>5.1 Nós nos esforçamos para fornecer informações precisas e atualizadas, mas não garantimos a exatidão ou
+            integridade do conteúdo do site.</p>
+
+          <p>5.2 Em nenhuma circunstância a Recuvera será responsável por danos diretos, indiretos, incidentais,
+            especiais ou consequentes resultantes do uso ou incapacidade de usar nosso site.</p>
+
+          <p><strong>6. Disposições Gerais</strong></p>
+
+          <p>6.1 Estes Termos de Serviço constituem o acordo completo entre você e a Recuvera em relação ao uso do site.
+          </p>
+
+          <p>6.2 Reservamo-nos o direito de modificar estes Termos de Serviço a qualquer momento. As alterações entrarão
+            em vigor imediatamente após serem publicadas no site.</p>
+
+          <p>Ao continuar a utilizar os serviços da Recuvera após a publicação de alterações nos Termos de Serviço, você
+            indica que aceita essas alterações.</p>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn me-auto" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal modal-blur fade" id="modal_PeP" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Politica de Privacidade</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <p><strong>Política de Privacidade da Recuvera, Lda</strong></p>
+
+          <p>A privacidade dos visitantes é extremamente importante para nós. Esta política de privacidade documenta os
+            tipos de informações pessoais recebidas e coletadas pela Recuvera, Lda e como essas informações são usadas.
+          </p>
+
+          <p><strong>Informações que Recolhemos</strong></p>
+
+          <p>Quando você utiliza nossos serviços, podemos coletar as seguintes informações:</p>
+
+          <p>- Informações fornecidas por você, como nome, endereço de e-mail, etc.</p>
+
+          <p>- Informações automáticas, como endereço IP, tipo de navegador, páginas acessadas, etc.</p>
+
+          <p><strong>Uso de Cookies</strong></p>
+
+          <p>Utilizamos cookies para armazenar informações sobre preferências dos visitantes e para registrar
+            informações específicas sobre as páginas que os usuários acessam ou visitam.</p>
+
+          <p><strong>Como Usamos Suas Informações</strong></p>
+
+          <p>Usamos as informações coletadas para entender suas necessidades e oferecer um melhor serviço. Isso inclui
+            personalizar o conteúdo exibido, melhorar nossos produtos e serviços, e entrar em contato para fins de
+            pesquisa de mercado.</p>
+
+          <p><strong>Divulgação a Terceiros</strong></p>
+
+          <p>Não vendemos, trocamos ou transferimos suas informações pessoais para terceiros sem o seu consentimento,
+            exceto quando necessário para fornecer um serviço solicitado.</p>
+
+          <p><strong>Links para Outros Sites</strong></p>
+
+          <p>Nosso site pode conter links para outros sites. Não somos responsáveis pelas práticas de privacidade desses
+            outros sites.</p>
+
+          <p><strong>Alterações na Política de Privacidade</strong></p>
+
+          <p>Podemos atualizar nossa Política de Privacidade periodicamente. A versão mais recente estará sempre
+            disponível em nosso site.</p>
+
+          <p><strong>Contato</strong></p>
+
+          <p>Se tiver dúvidas sobre esta política de privacidade, entre em contato conosco através do e-mail:
+            [seu-email@recuvera.pt].</p>
+
+          <p>Ao utilizar nosso site, você concorda com esta política de privacidade.</p>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn me-auto" data-bs-dismiss="modal">Fechar</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JS PARA Verificar Pssw Strength-->
+  <script>
+    const passwordClienteInput = document.getElementById('passwordCliente');
+    const passwordClienteConfirmaçãoInput = document.getElementById('passwordCLIENTEconfirmação');
+    const passwordClienteStrengthFeedback = document.getElementById('passwordStrengthFeedbackCliente');
+    const passwordClienteConfirmationFeedback = document.getElementById('passwordConfirmationFeedbackCliente');
+    const additionalText1 = 'A sua password deve conter pelo menos 8 caracteres, uma letra maiúscula e um caractere especial!';
+
+    passwordClienteInput.addEventListener('input', function () {
+      const password = passwordClienteInput.value;
+      const passwordStrength = checkPasswordStrength(password);
+
+      // Combine the additional text with password strength feedback
+      let combinedFeedback = additionalText1 + ' ' + getPasswordStrengthText(passwordStrength);
+
+      // Update the feedback based on password strength
+      passwordClienteStrengthFeedback.textContent = combinedFeedback;
+
+      if (passwordStrength === 'strong') {
+        passwordClienteStrengthFeedback.style.color = 'green';
+      } else if (passwordStrength === 'medium') {
+        passwordClienteStrengthFeedback.style.color = 'orange';
+      } else {
+        passwordClienteStrengthFeedback.style.color = 'red';
+      }
+    });
+
+    passwordClienteConfirmaçãoInput.addEventListener('input', function () {
+      const password = passwordClienteInput.value;
+      const confirmPassword = passwordClienteConfirmaçãoInput.value;
+
+      if (password === confirmPassword) {
+        passwordClienteConfirmationFeedback.textContent = 'Passwords combinam!';
+        passwordClienteConfirmationFeedback.style.color = 'green';
+      } else {
+        passwordClienteConfirmationFeedback.textContent = 'Passwords não são iguais!';
+        passwordClienteConfirmationFeedback.style.color = 'red';
+      }
+    });
+
+    function checkPasswordStrength(password) {
+      // Implement your password strength checking logic here
+      // This is a basic example, and you can enhance it as needed.
+      if (password.length >= 8 && /[A-Z]/.test(password) && /[!@#$%^&*]/.test(password)) {
+        return 'strong';
+      } else if (password.length >= 6) {
+        return 'medium';
+      } else {
+        return 'weak';
+      }
+    }
+
+    function getPasswordStrengthText(strength) {
+      if (strength === 'strong') {
+        return 'Password Forte';
+      } else if (strength === 'medium') {
+        return 'Password Media';
+      } else {
+        return 'Password Fraca';
+      }
+    }
+  </script>
+
+
+  <script>
+    const passwordPrestadorInput = document.getElementById('passwordPrestador');
+    const passwordPrestadorConfirmaçaoInput = document.getElementById('passwordPrestadorconfirmaçao');
+    const passwordPrestadorStrengthFeedback = document.getElementById('passwordStrengthFeedbackPrestador');
+    const passwordPrestadorConfirmationFeedback = document.getElementById('passwordConfirmationFeedbackPrestador');
+    const additionalText = 'A sua password deve conter pelo menos 8 caracteres, uma letra maiúscula e um caractere especial!';
+
+    passwordPrestadorInput.addEventListener('input', function () {
+      const password = passwordPrestadorInput.value;
+      const passwordStrength = checkPasswordStrength(password);
+
+      // Combine the additional text with password strength feedback
+      let combinedFeedback = additionalText + ' ' + getPasswordStrengthText(passwordStrength);
+
+      // Update the feedback based on password strength
+      passwordPrestadorStrengthFeedback.textContent = combinedFeedback;
+
+      if (passwordStrength === 'strong') {
+        passwordPrestadorStrengthFeedback.style.color = 'green';
+      } else if (passwordStrength === 'medium') {
+        passwordPrestadorStrengthFeedback.style.color = 'orange';
+      } else {
+        passwordPrestadorStrengthFeedback.style.color = 'red';
+      }
+    });
+
+    passwordPrestadorConfirmaçaoInput.addEventListener('input', function () {
+      const password = passwordPrestadorInput.value;
+      const confirmPassword = passwordPrestadorConfirmaçaoInput.value;
+
+      if (password === confirmPassword) {
+        passwordPrestadorConfirmationFeedback.textContent = 'Passwords combinam!';
+        passwordPrestadorConfirmationFeedback.style.color = 'green';
+      } else {
+        passwordPrestadorConfirmationFeedback.textContent = 'Passwords não são iguais!';
+        passwordPrestadorConfirmationFeedback.style.color = 'red';
+      }
+    });
+
+    function checkPasswordStrength(password) {
+      // Implement your password strength checking logic here
+      // This is a basic example, and you can enhance it as needed.
+      if (password.length >= 8 && /[A-Z]/.test(password) && /[!@#$%^&*]/.test(password)) {
+        return 'strong';
+      } else if (password.length >= 6) {
+        return 'medium';
+      } else {
+        return 'weak';
+      }
+    }
+
+    function getPasswordStrengthText(strength) {
+      if (strength === 'strong') {
+        return 'Password Forte';
+      } else if (strength === 'medium') {
+        return 'Password Media';
+      } else {
+        return 'Password Fraca';
+      }
+    }
+  </script>
+
+
+
+  <!-- JS PARA ABRIR O FORMULARIO-->
+
+  <script>
+    // Captura o elemento do grupo de seleção e os formulários
+    const tipoUsuario = document.getElementById('tipoUsuario');
+    const formCliente = document.getElementById('formCliente');
+    const formPrestador = document.getElementById('formPrestador');
+
+    // Adiciona um ouvinte de evento ao grupo de seleção
+    tipoUsuario.addEventListener('change', function () {
+      // Verifica qual opção está selecionada
+      if (tipoUsuario.querySelector('input[name="icons"]:checked').value === 'home') {
+        // Se a opção do cliente estiver selecionada, mostra o formulário do cliente e esconde o do prestador
+        formCliente.style.display = 'block';
+        formPrestador.style.display = 'none';
+      } else {
+        // Se a opção do prestador estiver selecionada, mostra o formulário do prestador e esconde o do cliente
+        formCliente.style.display = 'none';
+        formPrestador.style.display = 'block';
+      }
+    });
+  </script>
+
+  <!-- Libs JS -->
+  <!-- Tabler Core -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="/recuvera_v2/LoginERegistos/dist/js/tabler.min.js?1684106062" defer></script>
+  <script src="/recuvera_v2/LoginERegistos/assets/js/login.js"></script>
+  <script src="/recuvera_v2/LoginERegistos/dist/js/demo.min.js?1684106062" defer></script>
+
+  <script>
+    $(document).ready(function () {
+      // Toggle password visibility
+      $("#passwordClienteToggle").click(function () {
+        var passwordField = $("#passwordCliente");
+        var icon = $("#passwordClienteToggleIcon");
+
+        if (passwordField.attr("type") === "password") {
+          passwordField.attr("type", "text");
+          icon.removeClass("bi-eye").addClass("bi-eye-slash");
+        } else {
+          passwordField.attr("type", "password");
+          icon.removeClass("bi-eye-slash").addClass("bi-eye");
+        }
+      });
+    });
+    $(document).ready(function () {
+      // Toggle password visibility
+      $("#passwordCLIENTEconfirmaçãoToggle").click(function () {
+        var passwordField = $("#passwordCLIENTEconfirmação");
+        var icon = $("#passwordClienteToggleIcon");
+
+        if (passwordField.attr("type") === "password") {
+          passwordField.attr("type", "text");
+          icon.removeClass("bi-eye").addClass("bi-eye-slash");
+        } else {
+          passwordField.attr("type", "password");
+          icon.removeClass("bi-eye-slash").addClass("bi-eye");
+        }
+      });
+    });
+    $(document).ready(function () {
+      // Toggle password visibility
+      $("#passwordPrestadorToggle").click(function () {
+        var passwordField = $("#passwordPrestador");
+        var icon = $("#passwordClienteToggleIcon");
+
+        if (passwordField.attr("type") === "password") {
+          passwordField.attr("type", "text");
+          icon.removeClass("bi-eye").addClass("bi-eye-slash");
+        } else {
+          passwordField.attr("type", "password");
+          icon.removeClass("bi-eye-slash").addClass("bi-eye");
+        }
+      });
+    });
+    $(document).ready(function () {
+      // Toggle password visibility
+      $("#passwordPrestadorconfirmaçaoToggle").click(function () {
+        var passwordField = $("#passwordPrestadorconfirmaçao");
+        var icon = $("#passwordClienteToggleIcon");
+
+        if (passwordField.attr("type") === "password") {
+          passwordField.attr("type", "text");
+          icon.removeClass("bi-eye").addClass("bi-eye-slash");
+        } else {
+          passwordField.attr("type", "password");
+          icon.removeClass("bi-eye-slash").addClass("bi-eye");
+        }
+      });
+    });
+  </script>
+
+</body>
+
+</html>

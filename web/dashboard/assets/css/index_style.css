@@ -1,0 +1,42 @@
+.counts {
+    padding: 40px 0 20px 0;
+    color: #161616;
+}
+
+.counts .counters span {
+    font-size: 36px;
+    display: block;
+    font-weight: 700;
+}
+
+.counts .counters p {
+    padding: 0;
+    margin: 0 0 20px 0;
+    font-family: "Raleway", sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+  .custom-card {
+    background-image: linear-gradient(60deg, rgba(9, 44, 78, 0.75) 20%, rgba(25, 65, 90, 0.7) 25%, rgba(8, 66, 102, 0.9) 75%, rgba(43, 120, 153, 0.65) 85%);
+    background-size: 400% 400%;
+    animation: animate 15s ease infinite;
+    border-radius: 25px;
+    width: 100%;
+    padding: 40px 0 20px 0;
+    color: #ffffff;
+}
+
+@keyframes animate {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}

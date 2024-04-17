@@ -1,0 +1,349 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<link href="/indexis_v1/panelAdmin/assets/img/favicon (2).png" rel="icon">
+
+	<title>Indexis - Rever</title>
+
+	<!-- Vendors Style-->
+	<link rel="stylesheet" href="css/vendors_css.css">
+
+	<!-- Style-->
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/skin_color.css">
+	<link rel="stylesheet" href="css/custom.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+	<!-- Jquery logo ao INICIO!-->
+	<script src="./js/jquery.js"></script>
+
+	<!-- Proprio CSS -->
+	<link rel="stylesheet" href="/indexis_v1/panelAdmin/assets/css/index_style.css">
+
+	<style>
+		/* *DRAG AND DROP DO CURRICULO* */
+		#drop-zone {
+			width: 300px;
+			height: 100px;
+			border: 2px dashed #ccc;
+			border-radius: 10px;
+
+			text-align: center;
+			padding: 20px;
+			margin: 20px;
+		}
+
+		#dropped-files {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		#dropped-files li {
+			margin: 5px;
+			padding: 10px;
+			border: 1px solid #ccc;
+			background-color: #f9f9f9;
+		}
+
+		#pdf-visualizer {
+			display: none !important;
+		}
+
+		#curiculoPrestador {
+			display: none;
+		}
+
+		#fileInputCuriculo {
+			display: none;
+		}
+
+		.convertingColorsLinearGradient {
+			background-image: linear-gradient(60deg, rgba(10, 52, 91, 0.75) 20%, rgba(11, 72, 109, 0.7) 25%, rgba(5, 43, 67, 0.9) 75%, rgba(41, 93, 116, 0.65) 85%);
+			background-size: 400% 400%;
+			width: 100%;
+			/* min-height: 100vh; */
+			animation: animate 15s ease infinite;
+		}
+
+		@keyframes animate {
+			0% {
+				background-position: 0% 50%;
+			}
+
+			50% {
+				background-position: 100% 50%;
+			}
+
+			100% {
+				background-position: 0% 50%;
+			}
+		}
+	</style>
+
+</head>
+
+<body class="hold-transition light-skin sidebar-mini theme-pimary fixed">
+
+	<div class="wrapper">
+		<div id="loader"></div>
+
+		<header class="main-header">
+			<div class="d-flex align-items-center logo-box justify-content-start">
+				<!-- Logo -->
+				<a href="dashboard_indexis.html" class="logo">
+					<!-- logo-->
+
+					<div class="logo-lg">
+						<span class="light-logo"><img src="../assets/img/index_logo1.png" alt="logo"></span>
+						<span class="light-logo"><img src="../assets/img/index_logo1.png" alt="logo"></span>
+					</div>
+				</a>
+			</div>
+			<!-- Header Navbar -->
+			<nav class="navbar navbar-static-top">
+				<!-- Sidebar toggle button-->
+				<div class="app-menu">
+					<ul class="header-megamenu nav">
+						<li class="btn-group nav-item">
+							<a href="#" class="waves-effect waves-light nav-link push-btn btn-primary-light"
+								data-toggle="push-menu" role="button">
+								<i class="icon-Menu"><span class="path1"></span><span class="path2"></span></i>
+							</a>
+						</li>
+
+					</ul>
+				</div>
+
+				<div class="navbar-custom-menu r-side">
+					<ul class="nav navbar-nav">
+						<!-- User Account-->
+						<li class="dropdown user user-menu">
+							<a href="#"
+								class="waves-effect waves-light dropdown-toggle w-auto l-h-12 bg-transparent p-0 no-shadow"
+								data-bs-toggle="dropdown" title="User">
+								<div class="d-flex pt-1">
+									<div class="text-end me-10">
+										<h4 class="pt-5 fs-14 mb-0 fw-700 text-black" id="editnomeAdmin3">João Alberto
+										</h4>
+										<h4 class="fs-10 mb-0  text-mute" id="tipodeuser">Consultant</h4>
+									</div>
+									<img class="avatar rounded-10 bg-primary-light h-40 w-40" alt=""
+										src="../images/07.jpg">
+								</div>
+							</a>
+							<ul class="dropdown-menu animated flipInX">
+								<li class="user-body">
+									<a class="dropdown-item" href="perfil_admin.php"><i
+											class="ti-user text-muted me-2"></i> Perfil de Utilizador</a>
+									<a class="dropdown-item" onclick="logout()" style="cursor: pointer;"><i
+											class="ti-lock text-muted me-2"></i> Logout</a>
+
+								</li>
+							</ul>
+						</li>
+						<li class="btn-group nav-item d-lg-inline-flex d-none">
+							<a href="#" data-provide="fullscreen"
+								class="waves-effect waves-light nav-link full-screen btn-warning-light"
+								title="Full Screen">
+								<i class="icon-Position"></i>
+							</a>
+						</li>
+						<!-- Notifications -->
+
+						<!-- Control Sidebar Toggle Button -->
+
+
+					</ul>
+				</div>
+			</nav>
+		</header>
+
+		<aside class="main-sidebar">
+			<!-- sidebar-->
+			<section class="sidebar position-relative">
+				<div class="multinav">
+					<div class="multinav-scroll" style="height: 100%;">
+						<!-- sidebar menu-->
+						<ul class="sidebar-menu" data-widget="tree">
+							<li>
+								<a href="dashboard_indexis.html">
+									<i class="icon-Layout-4-blocks"><span class="path1"></span><span
+											class="path2"></span></i>
+									<span>Bem Vindo à Indexis</span>
+
+								</a>
+							</li>
+
+							<li>
+								<a href="consult_indexis.html">
+									<i class="icon-Barcode-read"><span class="path1"></span><span
+											class="path2"></span></i>
+									<span>Consultar Documento</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="regist_indexis.html">
+									<i class="icon-Compiling"><span class="path1"></span><span class="path2"></span></i>
+									<span>Registar Documento</span>
+
+								</a>
+							</li>
+
+							<li>
+								<a href="list_indexis.html">
+									<i class="icon-Settings-1"><span class="path1"></span><span
+											class="path2"></span></i>
+									<span>Listar Documentos</span>
+								</a>
+							</li>
+
+							<li>
+								<a href="rever_indexis.html">
+									<i class="icon-Settings-2"><span class="path1"></span><span
+											class="path2"></span><span class="path3"></span></i>
+									<span>Rever Documentos</span>
+
+								</a>
+							</li>
+
+
+					</div>
+				</div>
+			</section>
+		</aside>
+
+		<!-- Content Wrapper. Contains page content -->
+		<div class="content-wrapper rounded-0">
+			<div class="container-full ">
+
+				<!-- Main content -->
+				<section class="content">
+
+					<div class="col-8 mx-auto">
+						<a class="box convertingColorsLinearGradient">
+							<div class="box-body text-center">
+								<span class="text-white glyphicon glyphicon-list-alt fs-40"></span>
+								<h3 class="page-title text-white mt-3">Rever Documentos</h3>
+							</div>
+						</a>
+					</div>
+
+					<div class="row">
+						<div class="col-xxxl-12 col-12">
+							<div class="row justify-content-center">
+								<div class="col-xxxl-8 col-xl-8 col-lg-8">
+									<div class="box box-body px-35 py-30">
+										<div id="tabelaFavoritos"> </div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div id="pdf-visualizer">
+						<div class="row align-items-center d-flex justify-content-center">
+							<div class="col-lg-10 col-m-10 col-sm-10 col-10"
+								style="border: 2px solid black; border-radius: 15px; overflow: hidden; width: 604px; height: 804px; background-color:  rgb(42, 42, 42);">
+								<iframe id="pdf-iframe"
+									style="width:600px; height:800px; background-color: rgb(42, 42, 42);"
+									frameborder="0"></iframe>
+							</div>
+						</div>
+					</div>
+
+			</div>
+			</section>
+			<!-- /.content -->
+		</div>
+	</div>
+	<!-- /.content-wrapper -->
+	<footer class="main-footer text-center">
+		<div class="pull-right d-none d-sm-inline-block">
+
+		</div>
+		&copy;
+		<script>
+			document.write(new Date().getFullYear())
+		</script> <a href="/indexis_v1/homepage/index.html">Indexis</a>. All Rights Reserved.
+	</footer>
+
+	</div>
+	<!-- ./wrapper -->
+
+	<script>
+		//DRAG AND DROP DO CURRICULO
+		function allowDrop(event) {
+			event.preventDefault();
+		}
+
+		function drop(event) {
+			event.preventDefault();
+			var files = event.dataTransfer.files;
+			handleFiles(files);
+		}
+
+		function handleFileSelect(event) {
+			var files = event.target.files;
+			handleFiles(files);
+		}
+
+		function handleFiles(files) {
+			var droppedFilesList = document.getElementById("dropped-files");
+
+			for (var i = 0; i < files.length; i++) {
+				var listItem = document.createElement("li");
+				listItem.textContent = files[i].name;
+				droppedFilesList.appendChild(listItem);
+			}
+		}
+
+		$('#file-upload').on('change', function () {
+			handleFileSelect(event);
+			location.reload();
+		});
+	</script>
+
+	<!-- Page Content overlay -->
+
+
+	<!-- Vendor JS -->
+	<script src="js/vendors.min.js"></script>
+	<script src="js/pages/chat-popup.js"></script>
+	<script src="../assets/icons/feather-icons/feather.min.js"></script>
+
+	<script src="../assets/vendor_components/apexcharts-bundle/dist/apexcharts.js"></script>
+	<script src="https://rawgit.com/nnnick/Chart.js/v1.0.2/Chart.min.js"></script>
+	<script src="../assets/vendor_components/raphael/raphael.min.js"></script>
+	<script src="../assets/vendor_components/morris.js/morris.min.js"></script>
+	<script src="../assets/vendor_components/fullcalendar/lib/moment.min.js"></script>
+	<script src="../assets/vendor_components/fullcalendar/fullcalendar.min.js"></script>
+	<script src="../assets/vendor_components/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
+	<script src="../assets/vendor_components/Magnific-Popup-master/dist/jquery.magnific-popup-init.js"></script>
+
+
+
+	<!-- Doclinic App -->
+	<script src="js/template.js"></script>
+	<script src="js/pages/dashboard5.js"></script>
+	<script src="js/pages/calendar.js"></script>
+
+	<!-- Base -->
+	<script src="./js/sweetalert.js"></script>
+	<script src="js/pages/component-animations-css3.js"></script>
+	<script src="/indexis_v1/panelAdmin/assets/vendor/purecounter/purecounter_vanilla.js"></script>
+
+	<!-- Personalizado -->
+	<script src="/indexis_v1/panelAdmin/assets/js/index.js"></script>
+	<script src="/indexis_v1/panelAdmin/assets/js/rever.js"></script>
+
+</body>
+
+</html>
