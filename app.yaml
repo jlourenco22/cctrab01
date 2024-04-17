@@ -1,7 +1,8 @@
-runtime: custom
+runtime: php
 env: flex
 
 runtime_config:
+  operating_system: "ubuntu22"
   document_root: web
 
 manual_scaling:
