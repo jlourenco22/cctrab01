@@ -22,12 +22,72 @@ require_once __DIR__ . '/../vendor/autoload.php';
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Psr\Http\Message\ResponseInterface as Response;
 use Slim\Factory\AppFactory;
+use Psr\Http\Server\RequestHandlerInterface as RequestHandler;
+use Slim\Psr7\Factory\ResponseFactory;
 
 // Create App
 $app = AppFactory::create();
 
+// Create a response factory
+$responseFactory = new ResponseFactory();
+// Add static file middleware
+$app->add(new StaticFileMiddleware($responseFactory));
+
 // Display errors
 $app->addErrorMiddleware(true, true, true);
+
+class StaticFileMiddleware
+{
+    private $responseFactory;
+
+    public function __construct(ResponseFactory $responseFactory)
+    {
+        $this->responseFactory = $responseFactory;
+    }
+
+    public function __invoke(Request $request, RequestHandler $handler): Response
+    {
+        $uri = $request->getUri()->getPath();
+
+        // Adjust the base directory as needed
+        $basePath = __DIR__ . '/public';
+        $filename = $basePath . $uri;
+
+        if (!file_exists($filename) || !is_file($filename)) {
+            return $handler->handle($request);
+        }
+
+        // Determine MIME type based on file extension
+        $mimeTypes = [
+            'png' => 'image/png',
+            'jpg' => 'image/jpeg',
+            'jpeg' => 'image/jpeg',
+            'gif' => 'image/gif',
+            'css' => 'text/css',
+            'js' => 'application/javascript'
+            // Add more MIME types as needed
+        ];
+
+        $extension = strtolower(pathinfo($filename, PATHINFO_EXTENSION));
+        $contentType = $mimeTypes[$extension] ?? 'application/octet-stream';
+
+        // Read file contents
+        $contents = @file_get_contents($filename);
+
+        if ($contents === false) {
+            // Failed to read file, return 404 response
+            return $this->responseFactory->createResponse(404);
+        }
+
+        // Create response with file contents and appropriate headers
+        $response = $this->responseFactory->createResponse();
+        $response->getBody()->write($contents);
+        return $response->withHeader('Content-Type', $contentType);
+    }
+}
+
+
+
 
 $app->get('/', function (Request $request, Response $response) {
     // Assuming index.html is in the same directory as this PHP file
@@ -49,9 +109,9 @@ $app->get('/signin', function (Request $request, Response $response) {
 
 // @codeCoverageIgnoreStart
 if (PHP_SAPI != 'cli') {
-    $app->run();
 }
 // @codeCoverageIgnoreEnd
+$app->run();
 
 return $app;
 // [END appengine_flex_helloworld_index_php]

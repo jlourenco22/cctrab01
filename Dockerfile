@@ -20,6 +20,9 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 # Set timezone
 RUN echo "UTC" > /etc/timezone && dpkg-reconfigure --frontend noninteractive tzdata
 
+RUN docker-php-ext-install pdo_mysql mysqli
+
+WORKDIR /web
 # Set pid file to be able to restart php-fpm
 RUN sed -i "s@^\[global\]@\[global\]\n\npid = /run/php-fpm.pid@" ${PHP_INI_DIR}-fpm.conf
 
